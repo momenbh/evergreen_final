@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\Setting;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class SettingController extends Controller
 {
@@ -23,8 +24,14 @@ class SettingController extends Controller
         $settings->instagram_link = $request->instagram_link;
         $settings->youtube_link = $request->youtube_link;
         $settings->linked_in_link = $request->linked_in_link;
-           $fileName = null;
+        $fileName = null;
+
+        $updateSetting = Setting::where('id',2)->first();
         if ($request->hasFile('logo_image')) {
+
+            if($updateSetting){
+                File::delete(public_path('uploads/settings/'.$updateSetting->logo_image));
+            }
             // generate name
             $fileName = date('Ymdhmi') . '.' . $request->file('logo_image')->getClientOriginalExtension();
             $request->file('logo_image')->storeAs('/uploads/settings', $fileName);
@@ -36,7 +43,7 @@ class SettingController extends Controller
         //update
 
         // $settings->save();
-        Setting::where('id',2)->update([
+        $updateSetting->update([
             
             'site_title'=>$request->site_title,
             'copyrite_text'=>$request->copyrite_text,

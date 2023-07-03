@@ -37,6 +37,18 @@ use App\Http\Controllers\admin\Home;
 //Frontend controllers
 Route::get('/', [Homecontroller::class, 'index'])->name('home.project');
 
+//login
+Route::get('/login',[LoginController::class,'login'])->name('admin.login');
+Route::post('/do-login',[LoginController::class,'dologin'])->name('do.login');
+
+//amdin routes
+Route::get('/dashboard', [Dashboard::class, 'index'])->name('dashboard.project');
+
+
+
+
+Route::group(['middleware'=> 'auth'], function (){
+
 Route::get('/about', [Aboutcontroller::class, 'index']);
 
 Route::get('/contact', [Contactcontroller::class, 'index']);
@@ -75,8 +87,7 @@ Route::get('/news/delete{id}',[News::class,'news_delete'])->name('delete.newes')
 
 //admin
 
-Route::get('/login',[LoginController::class,'login'])->name('admin.login');
-Route::post('/do-login',[LoginController::class,'dologin'])->name('do.login');
+
 Route::get('/logout',[LoginController::class,'logout'])->name('admin.logout');
 // Route::get('/registration',[LoginController::class,'registration'])->name('admin.registration');
 
@@ -116,11 +127,11 @@ Route::get('/contact/view',[Contact::class,'view'])->name('view.contact');
 Route::post('/contact/store',[Contact::class,'store'])->name('store.contact');
 
 
-//amdin routes
-Route::get('/dashboard', [Dashboard::class, 'index'])->name('dashboard.project');
+
 
 
 
 //homepage edit
 Route::get('/homepage_edit',[Home::class,'homepage_edit'])->name('homepage_edit');
 Route::post('/homepage_edit_store',[Home::class,'homepage_edit_store'])->name('homepage_edit_store');
+});

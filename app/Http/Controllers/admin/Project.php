@@ -7,6 +7,7 @@ use App\Models\Table;
 use App\Models\Image;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File;
 use Illuminate\Validation\Rules\Unique;
 
 class Project extends Controller
@@ -106,6 +107,25 @@ class Project extends Controller
             'thumbnail_image' => $fileName,
             // 'filename'=>$fileName,
         ]);
+
+        
+        if ($request->hasFile('project_image')) {
+            $projectimages = Image::where("project_id",$id)->get();
+            foreach($projectimages as $image){
+                File::delete(public_path('uploads/projects/'.$image->filename));
+                $image->delete();
+            }
+            foreach ($request->project_image as $img) {
+           
+                $image = new Image();
+                $image->project_id = $id;
+                $fileName = date('Ymdhmi') . uniqid(). '.' . $img->getClientOriginalExtension();
+                $img->move(public_path('/uploads/projects'), $fileName);
+                $image->filename = $fileName;
+                $image->save();
+                
+            }
+        }
 
         //    //multiple image
         //    if ($request->project_image) {
