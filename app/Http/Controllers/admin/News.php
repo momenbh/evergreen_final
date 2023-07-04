@@ -32,7 +32,8 @@ class News extends Controller
     public function managenews()
     {
         $news = Newstore::orderby('id', 'desc')->paginate(5);
-        return view('admin.manage_news', compact('news'));
+        $images = Newsdetail::all();
+        return view('admin.manage_news', compact('news','images'));
     }
     public function store(Request $request)
     {
@@ -58,11 +59,11 @@ class News extends Controller
         return redirect()->back();
     }
     //edit
-    public function edit($id)
-    {
-        $category = Category::find($id);
-        return view('admin.edit_category', compact('category'));
-    }
+    // public function edit($id)
+    // {
+    //     $category = Category::find($id);
+    //     return view('admin.edit_category', compact('category'));
+    // }
     public function update(Request $request, $id)
     {
         // dd($request->all());
@@ -92,11 +93,6 @@ class News extends Controller
         return view('frontend.news_details',compact('details','detailimg'));
     }
       
-
-
-
-
-
     //NEWS
 
     public function store_news(Request $request)
@@ -127,8 +123,8 @@ class News extends Controller
             foreach ($request->p_image as $pimg){
                 $detailimg = new Newsdetail();
                 $detailimg->news_id = $manage_news->id;
-                $fileName = time() . '.' . $pimg->getClientOriginalExtension();
-                $pimg->move(public_path('/uploads/newsimage'), $fileName);
+                $fileName = time() . uniqid(). '.' . $pimg->getClientOriginalExtension();
+                $pimg->move(public_path('/uploads/gallery'), $fileName);
                 $detailimg->fileName = $fileName;
                 $detailimg->save();
 
@@ -139,9 +135,12 @@ class News extends Controller
 
         return redirect()->route('news.manage');
     }
-    public function news_delete($id)
+    public function delete_news($id)
     {
         Newstore::find($id)->delete();
+        Newsdetail::where('news_id',$id)->delete();
         return redirect()->back();
     }
+
+   
 }

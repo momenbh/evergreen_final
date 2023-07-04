@@ -19,6 +19,7 @@ class CreateNewesTable extends Migration
             $table->string('description');
             $table->string('category_name');
             $table->string('t_image')->nullable();
+            $table->string('p_image')->nullable();
             $table->timestamps();
         });
     }

@@ -31,7 +31,9 @@
                                             <th>Id</th>
                                             <th>News Title</th>
                                             <th>Description</th>
+                                            <th>Category</th>
                                             <th>thum Image</th>
+                                            <th>Gallery Images</th>
                                             <th class="text-center">Action</th>
                                         </tr>
                                     </thead>
@@ -41,8 +43,18 @@
                                                 <td>{{ $key + 1 }}</td>
                                                 <td>{{ $data->news_title }}</td>
                                                 <td>{{ $data->description }}</td>
+                                                <td>{{ $data->category_name }}</td>
                                                 <td>
                                                     <img width="100px" style="border-radius: 10px" src="{{url('/uploads/thumimg/'.$data->t_image)}}" alt="thum_image">
+                                                </td>
+                                                <td>
+                                                    @foreach ($images as $data)
+                  
+                                                    {{-- @dd($data) --}}
+                                                    <div class="col-image col-sm-12">
+                                                      <img width="50px" style="border-radius: 10px" src="{{ url('/uploads/gallery/' . $data->fileName) }}" alt="project_image">
+                                                    </div>
+                                                    @endforeach
                                                 </td>
                                                 <td class="text-center">
 

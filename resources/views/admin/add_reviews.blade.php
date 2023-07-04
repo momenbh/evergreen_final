@@ -17,13 +17,13 @@
     </div>
     <div class="widget-content widget-content-area">
 
-        <form action="{{route('reviews.store')}}" method="POST" enctype="multipart/form-data">
-                @csrf
+        <form action="{{ route('reviews.store') }}" method="POST" enctype="multipart/form-data">
+            @csrf
             <div class="form-row mb-4">
                 <div class="form-group col-md-6">
                     <label for="inputEmail4">Client Name</label>
-                    <input type="text" class="form-control" id="name"
-                        placeholder="client Name" name="client_name">
+                    <input type="text" class="form-control" id="name" placeholder="client Name"
+                        name="client_name">
                 </div>
             </div>
 
@@ -52,7 +52,7 @@
                                     <input type="file" name="client_img"
                                         class="custom-file-container__custom-file__custom-file-input"
                                         accept="image/*">
-                                    <input type="hidden"  value="10485760" />
+                                    <input type="hidden" value="10485760" />
                                     <span
                                         class="custom-file-container__custom-file__custom-file-control"></span>
                                 </label>
@@ -83,5 +83,4 @@
 <script type="text/javascript">
 var secondUpload = new FileUploadWithPreview('mySecondImage')
 </script>
-
 @endsection

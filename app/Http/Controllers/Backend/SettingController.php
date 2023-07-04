@@ -38,11 +38,10 @@ class SettingController extends Controller
         }
             //  dd($request->all());
         $settings->logo_image = $fileName;
-        
-
-        //update
 
         // $settings->save();
+        
+        //update
         $updateSetting->update([
             
             'site_title'=>$request->site_title,

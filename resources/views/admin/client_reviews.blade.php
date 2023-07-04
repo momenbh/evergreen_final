@@ -49,7 +49,7 @@
                         </a>
 
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink1">
-                            <a class="dropdown-item" href="javascript:void(0);">Edit</a>
+                            <a class="dropdown-item" href="{{route('edit.reviews',$data->id)}}">Edit</a>
                            {{-- <a class="dropdown-item" href="#">Delete</a> --}}
                              <a class="dropdown-item" href="{{route('delete.reviews',$data->id)}}">Delete</a>
                         </div>

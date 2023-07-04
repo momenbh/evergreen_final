@@ -64,9 +64,9 @@ Route::get('/project/details/{id}',[Projectcontroller::class,'details'])->name('
 
 //category
 Route::get('/category/add',[News::class,'add'])->name('add.category');
-Route::get('/category/add',[News::class,'add'])->name('add.category');
 Route::get('/category/manage',[News::class,'managecategory'])->name('manage.category');
 Route::post('/category/store',[News::class,'store'])->name('store.category');
+
 //delete  edit update
 Route::get('/category/delete/{id}',[News::class,'delete'])->name('delete.category');
 Route::get('/category/edit/{id}',[News::class,'edit'])->name('edit.category');
@@ -80,7 +80,7 @@ Route::get('/news/manage',[News::class,'managenews'])->name('news.manage');
 Route::get('/news/list',[News::class,'list'])->name('list.news');
 Route::get('/news/view/details/{id}',[News::class,'details'])->name('details.news');
 Route::post('/news/store_news',[News::class,'store_news'])->name('create.newes');
-Route::get('/news/delete{id}',[News::class,'news_delete'])->name('delete.newes');
+Route::get('/news/delete/{id}',[News::class,'delete_news'])->name('delete.newes');
 
 
 
@@ -119,6 +119,8 @@ Route::get('/client/manage',[Review::class,'manage'])->name('manage.client');
 Route::post('/client/reviews/store',[Review::class,'store'])->name('reviews.store');
 
 Route::get('/client/manage/delete/{id}',[Review::class,'delete'])->name('delete.reviews');
+Route::get('/client/manage/edit/{id}',[Review::class,'edit'])->name('edit.reviews');
+Route::post('/client/manage/update/{id}',[Review::class,'update'])->name('update.reviews');
 
 
 //contact
@@ -134,4 +136,5 @@ Route::post('/contact/store',[Contact::class,'store'])->name('store.contact');
 //homepage edit
 Route::get('/homepage_edit',[Home::class,'homepage_edit'])->name('homepage_edit');
 Route::post('/homepage_edit_store',[Home::class,'homepage_edit_store'])->name('homepage_edit_store');
+
 });

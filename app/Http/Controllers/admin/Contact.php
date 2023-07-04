@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Models\Pagecontact;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File ;
 
 class Contact extends Controller
 {
@@ -25,7 +26,14 @@ class Contact extends Controller
         $contact->contact_email = $request->contact_email;
         $fileName = null;
 
+        $bannerimage =Pagecontact::where('id',9)->first();
+
         if ($request->hasFile('banner_image')) {
+
+            if($bannerimage){
+
+                File::delete(public_path('uploads/banner/'.$bannerimage->banner_image));
+            }
             // generate name
             $fileName = date('Ymdhmi') . '.' . $request->file('banner_image')->getClientOriginalExtension();
             $request->file('banner_image')->storeAs('/uploads/banner', $fileName);
@@ -38,7 +46,7 @@ class Contact extends Controller
         // $contact->save();
         
 
-        Pagecontact::where('id',9)->update([
+        $bannerimage->update([
             // dd($request->all()),
             'address'=>$request->address,
             'email'=>$request->email,
