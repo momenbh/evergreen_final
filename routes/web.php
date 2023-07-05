@@ -1,27 +1,30 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\admin\Home;
 // use App\http\controller\Homecontroller;
 
 //Frontend controllers
-use App\Http\Controllers\frontend\Homecontroller;
-use App\Http\Controllers\frontend\Projectcontroller;
-use App\Http\Controllers\frontend\Aboutcontroller;
-use App\Http\Controllers\frontend\Newscontroller;
-use App\Http\Controllers\frontend\Contactcontroller;
+use App\Http\Controllers\admin\News;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\admin\Review;
+use App\Http\Controllers\admin\Contact;
+use App\Http\Controllers\admin\Project;
 
 
 //Admin controllers
 use App\Http\Controllers\admin\Dashboard;
-use App\Http\Controllers\admin\Contact;
 use App\Http\Controllers\admin\LoginController;
-use App\Http\Controllers\admin\News;
-use App\Http\Controllers\admin\Project;
-use App\Http\Controllers\admin\Review;
+use App\Http\Controllers\frontend\Homecontroller;
+use App\Http\Controllers\frontend\Newscontroller;
+use App\Http\Controllers\frontend\Aboutcontroller;
+
+//Backend
 use App\Http\Controllers\Backend\SettingController;
+use App\Http\Controllers\Backend\AboutConroller;
 
 
-use App\Http\Controllers\admin\Home;
+use App\Http\Controllers\frontend\Contactcontroller;
+use App\Http\Controllers\frontend\Projectcontroller;
 //dashboard
 
 
@@ -81,6 +84,8 @@ Route::get('/news/list',[News::class,'list'])->name('list.news');
 Route::get('/news/view/details/{id}',[News::class,'details'])->name('details.news');
 Route::post('/news/store_news',[News::class,'store_news'])->name('create.newes');
 Route::get('/news/delete/{id}',[News::class,'delete_news'])->name('delete.newes');
+Route::get('/news/edit/{id}',[News::class,'news_edit'])->name('edit.newes');
+Route::post('/news/update/{id}',[News::class,'news_update'])->name('update.news');
 
 
 
@@ -129,12 +134,14 @@ Route::get('/contact/view',[Contact::class,'view'])->name('view.contact');
 Route::post('/contact/store',[Contact::class,'store'])->name('store.contact');
 
 
-
-
-
-
 //homepage edit
-Route::get('/homepage_edit',[Home::class,'homepage_edit'])->name('homepage_edit');
-Route::post('/homepage_edit_store',[Home::class,'homepage_edit_store'])->name('homepage_edit_store');
+Route::get('/homepage/page',[Home::class,'homepage'])->name('home.page');
+Route::post('/homepage/store',[Home::class,'store'])->name('store.homepage');
+
+//about
+
+Route::get('/about/page',[AboutConroller::class,'about'])->name('about.page');
+Route::get('/about/details/pages',[AboutConroller::class,'pages'])->name('detail.pages');
+Route::post('/about/pages/store',[AboutConroller::class,'store'])->name('aboutpage.store');
 
 });

@@ -8,6 +8,7 @@ use App\Models\Newstore;
 use App\Models\Newsdetail;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Redis;
 
 class News extends Controller
@@ -33,6 +34,7 @@ class News extends Controller
     {
         $news = Newstore::orderby('id', 'desc')->paginate(5);
         $images = Newsdetail::all();
+
         return view('admin.manage_news', compact('news','images'));
     }
     public function store(Request $request)
@@ -58,12 +60,7 @@ class News extends Controller
         Category::find($id)->delete();
         return redirect()->back();
     }
-    //edit
-    // public function edit($id)
-    // {
-    //     $category = Category::find($id);
-    //     return view('admin.edit_category', compact('category'));
-    // }
+   
     public function update(Request $request, $id)
     {
         // dd($request->all());
@@ -75,6 +72,7 @@ class News extends Controller
         ]);
         return redirect()->route('manage.category');
     }
+
 
     //news list
 
@@ -136,10 +134,71 @@ class News extends Controller
         return redirect()->route('news.manage');
     }
     public function delete_news($id)
+    
     {
         Newstore::find($id)->delete();
         Newsdetail::where('news_id',$id)->delete();
         return redirect()->back();
+    }
+
+    public function news_edit($id){
+        $newstore =Newstore::find($id);
+        $newsdetail = Newsdetail::all();
+        $categories= Category::all();
+
+        return view('admin.news_page_edit',compact('categories','newsdetail','newstore'));
+
+    }
+    public function news_update(Request $request,$id){
+
+        $news_update =Newstore::where('id',$id)->first();
+        $fileName =$news_update->t_image;
+        
+       
+        if ($request->hasFile('t_image')) {
+            if($news_update){
+                File::delete(public_path('uploads/thumimg/'.$news_update->t_image));
+            }
+            // dd($request->all());
+            $fileName = date('Ymdhmi') . '.' . $request->file('t_image')->getClientOriginalExtension();
+            $request->file('t_image')->storeAs('/uploads/thumimg', $fileName);
+        }
+
+        $news_update->t_image = $fileName;
+        // $news_update->save();
+
+        $news_update->update([
+            'news_title' => $request->news_title,
+            'description' => $request->description,
+           'category_name' => $request->category_name,
+           't_image'=>$fileName,
+             
+
+           
+        ]); 
+
+        //multiple image
+        if($request->p_image){
+            $galleryimage=Newsdetail::where('news_id',$id)->get();
+            foreach($galleryimage as $image){
+                File::delete(public_path('uploads/gallery/'.$image->fileName));
+                $image->delete();
+            }
+            foreach ($request->p_image as $pimg){
+                $detailimg = new Newsdetail();
+                $detailimg->news_id = $id;
+                $fileName = time() . uniqid(). '.' . $pimg->getClientOriginalExtension();
+                $pimg->move(public_path('/uploads/gallery'), $fileName);
+                $detailimg->fileName = $fileName;
+                $detailimg->save();
+
+            }          
+        }
+                 
+
+         return redirect()->route('news.manage');
+
+
     }
 
    

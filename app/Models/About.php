@@ -5,8 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Homepage extends Model
+class About extends Model
 {
     protected $guarded=[];
-    protected $table='home_pages';
+    protected $table ='abouts';
+
 }

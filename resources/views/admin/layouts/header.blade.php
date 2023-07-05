@@ -269,12 +269,12 @@
                         </a>
                         <ul class="collapse submenu list-unstyled" id="pages" data-parent="#accordionExample">
                             <li>
-                                <a href="{{ route('homepage_edit') }}"> Home </a>
-                            </li>
-                            <!-- <li>
-                                <a href="#"> About </a>
+                                <a href="{{ route('home.page') }}"> Home </a>
                             </li>
                             <li>
+                                <a href="{{route('about.page')}}"> About </a>
+                            </li>
+                           <!-- <li>
                                 <a href="#"> News </a>
                             </li>
                             <li>

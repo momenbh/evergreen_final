@@ -3,7 +3,7 @@
 @section('main-container')
 
 
-<div class="about_banner banner">
+<div class="about_banner banner" style="background-image:url({{url('/uploads/aboutimage', $about->t_image)}})">
     <main class="page-header-3">
       <div class="container">
         <div class="row">
@@ -24,7 +24,9 @@
               <div class="col-md-6">
                   <div class="embed-responsive embed-responsive-16by9 video_div">
                     <video poster="images/banner/chuti.png" controls class="video_div">
-                       <source src="https://www.webacademy.click/evergreen92/images/videos/Chuti.mp4" type="video/mp4">
+                      <iframe width="722" height="350" src="{{ $about->Video_one_url }}" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
                     </video>
                   </div>
               </div>
@@ -192,7 +194,7 @@
 
             <div class="row leader">
               <div class="col-md-5">
-                    <img src="images/leader/image003.png">
+                    <img src="{{url('/frontend/images/leader/image003.png')}}">
                 </div>
                 <div class="col-md-1"></div>
               <div class="col-md-6">
@@ -228,13 +230,13 @@
               </div>
                 <div class="col-md-1"></div>
               <div class="col-md-5">
-                  <img src="images/leader/image004.png" class="">
+                  <img src="{{url('/frontend/images/leader/image004.png')}}" class="">
               </div>
             </div>
 
             <div class="row leader">
               <div class="col-md-5">
-                    <img src="images/leader/image005.png">
+                    <img src="{{url('/frontend/images/leader/image005.png')}}">
                 </div>
                 <div class="col-md-1"></div>
               <div class="col-md-6">
@@ -268,13 +270,13 @@
               </div>
                 <div class="col-md-1"></div>
               <div class="col-md-5">
-                  <img src="images/leader/image006.png" class="">
+                  <img src="{{url('/frontend/images/leader/image006.png')}}" class="">
               </div>
             </div>
 
             <div class="row leader">
               <div class="col-md-5">
-                    <img src="images/leader/image007.png">
+                    <img src="{{url('/frontend/images/leader/image007.png')}}">
                 </div>
                 <div class="col-md-1"></div>
               <div class="col-md-6">
@@ -310,42 +312,42 @@
               <div class="col-md-10 images_col">
                   <div class="row">
                     <div class="col-md-4">
-                        <img src="images/team/1.jpeg" class="img-fluid">
+                        <img src="{{url('/frontend/images/team/1.jpeg')}}" class="img-fluid">
                     </div>
                     <div class="col-md-4">
-                        <img src="images/team/2.jpeg" class="img-fluid">
+                        <img src="{{url('/frontend/images/team/2.jpeg')}}" class="img-fluid">
                     </div>
                     <div class="col-md-4">
-                        <img src="images/team/3.jpeg" class="img-fluid">
+                        <img src="{{url('/frontend/images/team/3.jpeg')}}" class="img-fluid">
                     </div>
                   </div>
 
                   <div class="row">
                     <div class="col-md-4">
-                      <img src="images/team/7.jpeg" class="img-fluid">
+                      <img src="{{url('/frontend/images/team/7.jpeg')}}" class="img-fluid">
                     </div>
 
                     <div class="col-md-4">
-                        <img src="images/team/8.jpeg" class="img-fluid">
+                        <img src="{{url('/frontend/images/team/8.jpeg')}}" class="img-fluid">
                     </div>
 
                     <div class="col-md-4">
-                        <img src="images/team/9.jpeg" class="img-fluid">
+                        <img src="{{url('/frontend/images/team/9.jpeg')}}" class="img-fluid">
                     </div>
                   </div>
 
 
                   <div class="row">
                     <div class="col-md-4">
-                      <img src="images/team/10.jpeg" class="img-fluid">
+                      <img src="{{url('/frontend/images/team/10.jpeg')}}" class="img-fluid">
                     </div>
 
                     <div class="col-md-4">
-                        <img src="images/team/11.jpeg" class="img-fluid">
+                        <img src="{{url('/frontend/images/team/11.jpeg')}}" class="img-fluid">
                     </div>
 
                     <div class="col-md-4">
-                        <img src="images/team/12.jpeg" class="img-fluid">
+                        <img src="{{url('/frontend/images/team/12.jpeg')}}" class="img-fluid">
                     </div>
                   </div>
                     

@@ -19,36 +19,29 @@
                                 </div>
                             </div>
                             <div class="widget-content widget-content-area">
-                                @foreach ( $home as $data )
+                                
                                     
                                 
-                                <form action="{{route('homepage_edit_store')}}" method="POST" enctype="multipart/form-data">
+                                <form action="{{route('store.homepage')}}" method="POST" enctype="multipart/form-data">
+
                                         @csrf
+
                                         <div class="form-row mb-4">
                                             <div class="form-group col-md-6">
                                                 <label for="inputEmail4">About section Title</label>
-                                                <input type="text" class="form-control" name="about_section_title" value="<?php
-                                                if (!empty($data)) {
-                                                echo $data->about_section_title;
-                                                }
-                                                ?>" placeholder="About section Title">
+                                                <input type="text" class="form-control" name="about_section_title" placeholder="About section Title" value="{{$home->about_section_title}}">
                                             </div>
                                             <div class="form-group col-md-6">
                                                     <label for="description">Description</label>
-                                                    <textarea  type="textarea" name="about_description" class="form-control" ><?php
-                                                    if (!empty($data)) {
-                                                    echo $data->about_description;
-                                                    }
-                                                    ?></textarea>
+                                                    <textarea  type="textarea" name="about_description" class="form-control" >{{$home->about_description}}</textarea>
                                             </div>
 
                                             <div class="form-group col-md-6">
                                                 <label for="inputEmail4">Experience Year</label>
-                                                <input type="number" class="form-control" name="experience_year" value="<?php
-                                                if (!empty($data)) {
-                                                echo $data->experience_year;
-                                                }
-                                                ?>">
+                                                <input type="number" class="form-control" name="experience_year" value="{{$home->experience_year}}">
+                                                
+                                                
+                                               
                                             </div>
                                         </div>
 
@@ -70,7 +63,7 @@
                                                             <label class="custom-file-container__custom-file">
                                                                 <input type="file" name="about_image"
                                                                     class="custom-file-container__custom-file__custom-file-input"
-                                                                    accept="image/*">
+                                                                    accept="image/*" value="{{$home->about_image}}">
                                                                 <input type="hidden"
                                                                     value="10485760" />
                                                                 <span
@@ -88,7 +81,7 @@
                                       <button type="submit" class="btn btn-primary mt-3">Save</button>
                                     </form>
 
-                                    @endforeach
+                                    
                             </div>
                         </div>
                     </div>

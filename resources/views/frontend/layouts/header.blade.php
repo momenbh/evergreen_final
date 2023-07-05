@@ -37,7 +37,7 @@
             <a  href="index.php">Home</a>
           </li>
           <li>
-            <a href="about.php">About</a>
+            <a href="{{route('detail.pages')}}">About</a>
           </li>
           <li>
             <a href="{{route('list.project')}}">Projects</a>
