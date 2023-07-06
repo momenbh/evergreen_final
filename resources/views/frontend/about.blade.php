@@ -3,7 +3,7 @@
 @section('main-container')
 
 
-<div class="about_banner banner" style="background-image:url({{url('/uploads/aboutimage', $about->t_image)}})">
+<div class="about_banner banner" style="background-image:url({{url('/uploads/aboutimage', $about->a_image)}})">
     <main class="page-header-3">
       <div class="container">
         <div class="row">
@@ -22,20 +22,24 @@
           <div class="container">
             <div class="row">
               <div class="col-md-6">
-                  <div class="embed-responsive embed-responsive-16by9 video_div">
-                    <video poster="images/banner/chuti.png" controls class="video_div">
-                      <iframe width="722" height="350" src="{{ $about->Video_one_url }}" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen></iframe>
-                    </video>
+                  <div class="embed-responsive embed-responsive-16by9 ">
+                    <span>
+                    
+
+                      <iframe width="722" height="350" src=" {{$about->Video_one_url}} " frameborder="0"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                          allowfullscreen></iframe>
+                  </span>
                   </div>
               </div>
-
+             
               <div class="col-md-6">
                   <div class="embed-responsive embed-responsive-16by9 video_div">
-                    <video poster="images/banner/rose_garden.png" controls class="">
-                       <source src="https://www.webacademy.click/evergreen92/images/videos/Chuti.mp4" type="video/mp4">
-                    </video>
+                    <span>
+                      <iframe width="722" height="350" src=" {{$about->Video_two_url}} " frameborder="0"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                          allowfullscreen></iframe>
+                  </span>
                   </div>
               </div>
             </div>
@@ -53,11 +57,7 @@
               <div class="col-md-9">
                 <div class="text-display-1">
                   <p><strong class="text-dark" style="color: green;">Evergreen’92</strong>
-                 is a dream of green time that started in Covid-19. It’s an emotional birth of our friends Architect Mizanur Rahman, Farhad Mostafa Chowdhury, Md. Mostofa Monwar Bhuiyan, Md. Nasim Haider, Mahidul Munsur khan. We started our journey 16 December 2020 from Chuti Resort in Purbachal by keeping in mind to build affordable living for maintaining a luxuries lifestyle and  quality time with your family in our resort…..</p>
-
-                  <p>As professional Real Estate Company, our extensive knowledge of the current real estate market can help you to considering buying or selling. We offer multiple products and service that may not be readily available to you.</p>
-
-                  <p>These can include the current market value of your property, sale statistics and market trends. We also offer exclusive relocation, service and assistance.</p>
+                   {{$about->brief_about_us}}
                 </div>
               </div>
             </div>
@@ -74,7 +74,7 @@
                 </div>
               </div>
               <div class="col-md-9">
-                <div class="text-display-1"><p>To ensure an efficient and innovative land development, Hotel, Resort & Flat services while protecting the environment and improving the quality of life.</p>
+                <div class="text-display-1"><p>{{$about->mission_statement}}</p>
 
                   
                 </div>
@@ -93,7 +93,7 @@
                 </div>
               </div>
               <div class="col-md-9">
-                <div class="text-display-1"><p>Become the development company of choice through consistent product quality, empowering people and  satisfying stakeholders.</p>
+                <div class="text-display-1">{{$about->vision_statement}}
 
                   
                 </div>

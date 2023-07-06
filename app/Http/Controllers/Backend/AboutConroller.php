@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Models\About;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File;
 
 class AboutConroller extends Controller
 {
@@ -28,12 +29,13 @@ class AboutConroller extends Controller
         $about->vision_statement = $request->vision_statement;
         $fileName = null;
          
-        // $updateSetting = Setting::where('id',2)->first();
+        $aboutimage = About::where('id',5)->first();
+        
         if ($request->hasFile('a_image')) {
 
-            // if($updateSetting){
-            //     File::delete(public_path('uploads/settings/'.$updateSetting->logo_image));
-            // }
+            if($aboutimage){
+                File::delete(public_path('uploads/aboutimage/'.$aboutimage->a_image));
+            }
             // generate name
             $fileName = date('Ymdhmi') . '.' . $request->file('a_image')->getClientOriginalExtension();
             $request->file('a_image')->storeAs('/uploads/aboutimage', $fileName);
@@ -41,7 +43,18 @@ class AboutConroller extends Controller
             //  dd($request->all());
         $about->a_image = $fileName;
 
-        $about->save();
+        // $about->save();
+              $aboutimage->update([
+                'Video_one_url'=>$request->Video_one_url,
+                'Video_two_url'=>$request->Video_two_url,
+                'brief_about_us'=>$request->brief_about_us,
+                'mission_statement'=>$request->mission_statement,
+                'vision_statement'=>$request->vision_statement,
+                'a_image'=>$fileName,
+
+              ]);
+
+
 
         return redirect()->back();
         
