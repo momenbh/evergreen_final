@@ -21,6 +21,7 @@ class CreateAboutsTable extends Migration
             $table->text('mission_statement');
             $table->text('vision_statement');
             $table->string('a_image')->nullable();
+            $table->string('team_image')->nullable();
             $table->timestamps();
         });
     }

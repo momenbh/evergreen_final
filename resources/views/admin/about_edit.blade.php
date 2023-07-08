@@ -23,25 +23,25 @@
                                 <div class="form-row mb-4">
                                     <div class="form-group col-md-6">
                                         <label>Video one url</label>
-                                        <input type="text" class="form-control" name="Video_one_url">
+                                        <input type="text" class="form-control" name="Video_one_url" value={{$about->Video_one_url}}>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label>Video two url</label>
-                                        <input type="text" class="form-control" name="Video_two_url">
+                                        <input type="text" class="form-control" name="Video_two_url" value={{$about->Video_two_url}}>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="description">Brief about us</label>
-                                        <textarea type="textarea" class="form-control" name="brief_about_us"></textarea>
+                                        <textarea type="textarea" class="form-control" name="brief_about_us">{{$about->brief_about_us}}</textarea>
                                     </div>
 
                                     <div class="form-group col-md-6">
                                         <label>Mission Statement</label>
-                                        <textarea type="textarea" class="form-control" name="mission_statement"></textarea>
+                                        <textarea type="textarea" class="form-control" name="mission_statement">{{$about->mission_statement}}</textarea>
                                     </div>
 
                                     <div class="form-group col-md-6">
                                         <label>Vision Statement</label>
-                                        <textarea type="textarea" class="form-control" name="vision_statement"></textarea>
+                                        <textarea type="textarea" class="form-control" name="vision_statement">{{$about->vision_statement}}</textarea>
                                     </div>
 
                                 </div>
@@ -95,7 +95,7 @@
                                                     <label class="custom-file-container__custom-file">
                                                         <input type="file"
                                                             class="custom-file-container__custom-file__custom-file-input"
-                                                            accept="image/*" name="a_image">
+                                                            accept="image/*" name="a_image" value={{$about->a_image}}>
                                                         <input type="hidden" name="MAX_FILE_SIZE" value="10485760" />
                                                         <span
                                                             class="custom-file-container__custom-file__custom-file-control"></span>
@@ -103,6 +103,37 @@
                                                     <div class="custom-file-container__image-preview"></div>
                                                 </div>
 
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div id="fuMultipleFile" class="col-lg-12 layout-spacing">
+                                        <div class="statbox widget box box-shadow">
+                                            <div class="widget-header">
+                                                <div class="row">
+                                                    <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                                                        <h4>Team Member Images Upload</h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="widget-content widget-content-area">
+                                                <div class="custom-file-container"
+                                                    data-upload-id="mySecondImage">
+                                                    <label>Clear All <a href="javascript:void(0)"
+                                                            class="custom-file-container__image-clear"
+                                                            title="Clear Image">x</a></label>
+                                                    <label class="custom-file-container__custom-file">
+                                                        <input type="file" 
+                                                            class="custom-file-container__custom-file__custom-file-input" name="team_image[]"
+                                                            multiple>
+                                                        <input type="hidden"
+                                                            value="10485760" />
+                                                        <span
+                                                            class="custom-file-container__custom-file__custom-file-control"></span>
+                                                    </label>
+                                                    <div class="custom-file-container__image-preview"></div>
+                                                </div>
+                            
                                             </div>
                                         </div>
                                     </div>

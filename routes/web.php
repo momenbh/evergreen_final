@@ -34,10 +34,8 @@ use App\Http\Controllers\frontend\Projectcontroller;
 
 
 
+//Frontend  view
 
-
-
-//Frontend controllers
 Route::get('/', [Homecontroller::class, 'index'])->name('home.project');
 
 //login
@@ -54,6 +52,13 @@ Route::get('/project/details/{id}',[Projectcontroller::class,'details'])->name('
 //News list/details
 Route::get('/news/list',[News::class,'list'])->name('list.news');
 Route::get('/news/view/details/{id}',[News::class,'details'])->name('details.news');
+
+//contact view
+Route::get('/contact/view',[Contact::class,'view'])->name('view.contact');
+//about
+
+Route::get('/about/page',[AboutConroller::class,'about'])->name('about.page');
+Route::get('/about/details/pages',[AboutConroller::class,'pages'])->name('detail.pages');
 
 
 //middleware
@@ -134,7 +139,6 @@ Route::post('/client/manage/update/{id}',[Review::class,'update'])->name('update
 
 //contact
 Route::get('/contact',[Contact::class,'contact'])->name('contact.page');
-Route::get('/contact/view',[Contact::class,'view'])->name('view.contact');
 Route::post('/contact/store',[Contact::class,'store'])->name('store.contact');
 
 
@@ -144,8 +148,7 @@ Route::post('/homepage/store',[Home::class,'store'])->name('store.homepage');
 
 //about
 
-Route::get('/about/page',[AboutConroller::class,'about'])->name('about.page');
-Route::get('/about/details/pages',[AboutConroller::class,'pages'])->name('detail.pages');
+
 Route::post('/about/pages/store',[AboutConroller::class,'store'])->name('aboutpage.store');
 
 });
