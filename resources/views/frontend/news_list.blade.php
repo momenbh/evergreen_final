@@ -23,9 +23,9 @@
           </ul> --}}
         </div>
         <div class="js-isotope">
+
              @foreach ($newsimg as $data)
                  
-             
           <div class="inspiration card-row js-isotope-item">
             <div class="card-row-img col-md-7 col-lg-8 hidden-sm hidden-xs" style="background-image:url({{url('/uploads/thumimg', $data->t_image)}})"></div>
             <img class="visible-sm visible-xs img-responsive" alt="" src="{{url('/uploads/thumimg', $data->t_image)}}" alt="t_img">

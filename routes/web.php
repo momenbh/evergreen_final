@@ -47,10 +47,19 @@ Route::post('/do-login',[LoginController::class,'dologin'])->name('do.login');
 //amdin routes
 Route::get('/dashboard', [Dashboard::class, 'index'])->name('dashboard.project');
 
+//project list/details
+Route::get('/projects-list', [Projectcontroller::class, 'projectlist'])->name('list.project');
+Route::get('/project/details/{id}',[Projectcontroller::class,'details'])->name('details.project');
+
+//News list/details
+Route::get('/news/list',[News::class,'list'])->name('list.news');
+Route::get('/news/view/details/{id}',[News::class,'details'])->name('details.news');
 
 
+//middleware
 
 Route::group(['middleware'=> 'auth'], function (){
+
 
 Route::get('/about', [Aboutcontroller::class, 'index']);
 
@@ -60,10 +69,7 @@ Route::get('/news', [Newscontroller::class, 'index']);
 
 Route::get('/projects', [Projectcontroller::class, 'index']);
 
-//project list/details
 
-Route::get('/projects-list', [Projectcontroller::class, 'projectlist'])->name('list.project');
-Route::get('/project/details/{id}',[Projectcontroller::class,'details'])->name('details.project');
 
 //category
 Route::get('/category/add',[News::class,'add'])->name('add.category');
@@ -80,8 +86,6 @@ Route::post('/category/update/{id}',[News::class,'update'])->name('update.catego
 //news
 Route::get('/news/add',[News::class,'news'])->name('add.news');
 Route::get('/news/manage',[News::class,'managenews'])->name('news.manage');
-Route::get('/news/list',[News::class,'list'])->name('list.news');
-Route::get('/news/view/details/{id}',[News::class,'details'])->name('details.news');
 Route::post('/news/store_news',[News::class,'store_news'])->name('create.newes');
 Route::get('/news/delete/{id}',[News::class,'delete_news'])->name('delete.newes');
 Route::get('/news/edit/{id}',[News::class,'news_edit'])->name('edit.newes');

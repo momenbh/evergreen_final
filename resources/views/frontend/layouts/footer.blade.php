@@ -33,7 +33,7 @@
             <li><a href="#">Our Location</a></li>
             <li><a href="#">Career</a></li>
             <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="{{route('view.contact')}}">Contact</a></li>
           </ul> 
         </div>
         

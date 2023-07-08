@@ -38,7 +38,7 @@
                   
                 {{-- @dd($data) --}}
                 <div class="col-image col-sm-12">
-                  <img class="img-fluid project_image" src="{{ url('/uploads/newsimage/' . $data->fileName) }}" alt="project_image">
+                  <img class="img-fluid project_image" src="{{ url('/uploads/gallery/' . $data->fileName) }}" alt="project_image">
                 </div>
                 @endforeach
               </div>
