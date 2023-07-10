@@ -23,25 +23,25 @@
                                 <div class="form-row mb-4">
                                     <div class="form-group col-md-6">
                                         <label>Video one url</label>
-                                        <input type="text" class="form-control" name="Video_one_url" value={{$about->Video_one_url}}>
+                                        <input type="text" class="form-control" name="Video_one_url" value={{$aboutimg->Video_one_url}}>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label>Video two url</label>
-                                        <input type="text" class="form-control" name="Video_two_url" value={{$about->Video_two_url}}>
+                                        <input type="text" class="form-control" name="Video_two_url" value={{$aboutimg->Video_two_url}}>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="description">Brief about us</label>
-                                        <textarea type="textarea" class="form-control" name="brief_about_us">{{$about->brief_about_us}}</textarea>
+                                        <textarea type="textarea" class="form-control" name="brief_about_us">{{$aboutimg->brief_about_us}}</textarea>
                                     </div>
 
                                     <div class="form-group col-md-6">
                                         <label>Mission Statement</label>
-                                        <textarea type="textarea" class="form-control" name="mission_statement">{{$about->mission_statement}}</textarea>
+                                        <textarea type="textarea" class="form-control" name="mission_statement">{{$aboutimg->mission_statement}}</textarea>
                                     </div>
 
                                     <div class="form-group col-md-6">
                                         <label>Vision Statement</label>
-                                        <textarea type="textarea" class="form-control" name="vision_statement">{{$about->vision_statement}}</textarea>
+                                        <textarea type="textarea" class="form-control" name="vision_statement">{{$aboutimg->vision_statement}}</textarea>
                                     </div>
 
                                 </div>
@@ -95,7 +95,7 @@
                                                     <label class="custom-file-container__custom-file">
                                                         <input type="file"
                                                             class="custom-file-container__custom-file__custom-file-input"
-                                                            accept="image/*" name="a_image" value={{$about->a_image}}>
+                                                            accept="image/*" name="a_image" value={{$aboutimg->a_image}}>
                                                         <input type="hidden" name="MAX_FILE_SIZE" value="10485760" />
                                                         <span
                                                             class="custom-file-container__custom-file__custom-file-control"></span>

@@ -11,13 +11,13 @@ use Illuminate\Support\Facades\File;
 class AboutConroller extends Controller
 {
     public function about(){
-        $about= About::first();
-        return view('admin.about_edit',compact('about'));
+        $aboutimg= About::first();
+        return view('admin.about_edit',compact('aboutimg'));
     }
     public function pages(){
-        $about = About::first();
+        $aboutimg = About::first();
         $aboutimage =Team::all();
-        return view('frontend.about',compact('about','aboutimage'));
+        return view('frontend.about',compact('aboutimg','aboutimage'));
     }
 
     public function store(Request $request){
@@ -32,12 +32,12 @@ class AboutConroller extends Controller
         $about->vision_statement = $request->vision_statement;
         $fileName = null;
          
-        $aboutimage = About::where('id',6)->first();
+        $aboutimg = About::where('id',6)->first();
         
         if ($request->hasFile('a_image')) {
 
-            if($aboutimage){
-                File::delete(public_path('uploads/aboutimage/'.$aboutimage->a_image));
+            if($aboutimg){
+                File::delete(public_path('uploads/aboutimage/'.$aboutimg->a_image));
             }
             // generate name
             $fileName = date('Ymdhmi') . '.' . $request->file('a_image')->getClientOriginalExtension();
@@ -67,7 +67,7 @@ class AboutConroller extends Controller
             }
         }
 
-              $aboutimage->update([
+              $aboutimg->update([
                 'Video_one_url'=>$request->Video_one_url,
                 'Video_two_url'=>$request->Video_two_url,
                 'brief_about_us'=>$request->brief_about_us,

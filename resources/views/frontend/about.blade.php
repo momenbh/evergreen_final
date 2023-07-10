@@ -3,7 +3,7 @@
 @section('main-container')
 
 
-<div class="about_banner banner" style="background-image:url({{url('/uploads/aboutimage', $about->a_image)}})">
+<div class="about_banner banner" style="background-image:url({{url('/uploads/aboutimage/'.$aboutimg->a_image)}})">
     <main class="page-header-3">
       <div class="container">
         <div class="row">
@@ -26,7 +26,7 @@
                     <span>
                     
 
-                      <iframe width="722" height="350" src=" {{$about->Video_one_url}} " frameborder="0"
+                      <iframe width="722" height="350" src=" {{$aboutimg->Video_one_url}} " frameborder="0"
                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                           allowfullscreen></iframe>
                   </span>
@@ -36,7 +36,7 @@
               <div class="col-md-6">
                   <div class="embed-responsive embed-responsive-16by9 video_div">
                     <span>
-                      <iframe width="722" height="350" src=" {{$about->Video_two_url}} " frameborder="0"
+                      <iframe width="722" height="350" src=" {{$aboutimg->Video_two_url}} " frameborder="0"
                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                           allowfullscreen></iframe>
                   </span>
@@ -57,7 +57,7 @@
               <div class="col-md-9">
                 <div class="text-display-1">
                   <p><strong class="text-dark" style="color: green;">Evergreen’92</strong>
-                   {{$about->brief_about_us}}
+                   {{$aboutimg->brief_about_us}}
                 </div>
               </div>
             </div>
@@ -74,7 +74,7 @@
                 </div>
               </div>
               <div class="col-md-9">
-                <div class="text-display-1"><p>{{$about->mission_statement}}</p>
+                <div class="text-display-1"><p>{{$aboutimg->mission_statement}}</p>
 
                   
                 </div>
@@ -93,7 +93,7 @@
                 </div>
               </div>
               <div class="col-md-9">
-                <div class="text-display-1">{{$about->vision_statement}}
+                <div class="text-display-1">{{$aboutimg->vision_statement}}
 
                   
                 </div>
@@ -311,46 +311,15 @@
               </div>
               <div class="col-md-10 images_col">
                   <div class="row">
+                         @foreach ( $aboutimage as $imge)
+                           
+                         
                     <div class="col-md-4">
-                        <img src="{{url('/frontend/images/team/1.jpeg')}}" class="img-fluid">
-                    </div>
-                    <div class="col-md-4">
-                        <img src="{{url('/frontend/images/team/2.jpeg')}}" class="img-fluid">
-                    </div>
-                    <div class="col-md-4">
-                        <img src="{{url('/frontend/images/team/3.jpeg')}}" class="img-fluid">
-                    </div>
+                        <img src="{{url('uploads/teamimage/'.$imge->filename)}}" class="img-fluid">
+                      </div>
+                      @endforeach
+
                   </div>
-
-                  <div class="row">
-                    <div class="col-md-4">
-                      <img src="{{url('/frontend/images/team/7.jpeg')}}" class="img-fluid">
-                    </div>
-
-                    <div class="col-md-4">
-                        <img src="{{url('/frontend/images/team/8.jpeg')}}" class="img-fluid">
-                    </div>
-
-                    <div class="col-md-4">
-                        <img src="{{url('/frontend/images/team/9.jpeg')}}" class="img-fluid">
-                    </div>
-                  </div>
-
-
-                  <div class="row">
-                    <div class="col-md-4">
-                      <img src="{{url('/frontend/images/team/10.jpeg')}}" class="img-fluid">
-                    </div>
-
-                    <div class="col-md-4">
-                        <img src="{{url('/frontend/images/team/11.jpeg')}}" class="img-fluid">
-                    </div>
-
-                    <div class="col-md-4">
-                        <img src="{{url('/frontend/images/team/12.jpeg')}}" class="img-fluid">
-                    </div>
-                  </div>
-                    
               </div>
             </div>
           </div>

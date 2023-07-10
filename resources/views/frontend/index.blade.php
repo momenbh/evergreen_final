@@ -624,7 +624,7 @@ utmost<br> desire for modern and healthy<br> living place at purbachol
       <!-- Section News -->
 
       <section class="section-news section">
-        <div class="container">
+        {{-- <div class="container">
           <h2 class="section-title">Latest News <a href="news_list.php" class="link-arrow-2 pull-right">All Articles <i class="icon ion-ios-arrow-right"></i></a></h2>
           <div class="news-carousel owl-carousel">
             <div class="news-item">
@@ -664,7 +664,7 @@ utmost<br> desire for modern and healthy<br> living place at purbachol
               </div>
             </div>
           </div>
-        </div>
+        </div> --}}
       </section>
     </div>
 
